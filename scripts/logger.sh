@@ -1,4 +1,5 @@
 #!/bin/bash
 log_action() {
-    echo "$(date '+%Y-%m-%d %H:%M:%S') - $1" >> script.log
+    local message="$1"
+    echo "$(date '+%Y-%m-%d %H:%M:%S') - $message" >> script.log
 }
