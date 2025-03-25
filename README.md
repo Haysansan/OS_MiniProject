@@ -35,6 +35,8 @@ cd ...
 After cloning the repository, ensure all the .sh files are executable. You can do this by running the following command:
 
 chmod +x *.sh
+Example :   chmod +x file_manager.sh
+            chmod +x scripts/*.sh
 
 
 4. Run the Program
