@@ -3,7 +3,7 @@
 # Load utility scripts
 source scripts/logger.sh
 
-while true; do
+show_menu() {
     echo "File and Directory Management Program"
     echo "1. List files and directories"
     echo "2. Create backup"
@@ -12,16 +12,26 @@ while true; do
     echo "5. Search for a file"
     echo "6. Compress files"
     echo "7. Exit"
+}
+
+while true; do
+    show_menu
     read -p "Choose an option: " choice
 
     case $choice in
-        1) source scripts/list_files.sh ;;
-        2) source scripts/backup.sh ;;
-        3) source scripts/count_files.sh ;;
-        4) source scripts/disk_usage.sh ;;
-        5) source scripts/search_files.sh ;;
-        6) source scripts/compress.sh ;;
-        7) echo "Exiting..."; exit 0 ;;
-        *) echo "Invalid choice, try again." ;;
+        1) list_files ;;
+        2) create_backup ;;
+        3) count_files ;;
+        4) display_disk_usage ;;
+        5) search_files ;;
+        6) compress_files ;;
+        7) 
+            read -p "Are you sure you want to exit? (y/n): " confirm
+            if [[ "$confirm" =~ ^[Yy]$ ]]; then
+                echo "Exiting..."; exit 0
+            fi
+            ;;
+        *) 
+            echo "Invalid choice, please try again." ;;
     esac
 done
